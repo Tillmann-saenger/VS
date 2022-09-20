@@ -102,14 +102,20 @@ namespace WindowsFormsApp1
                     {
                         imageIndex++;
                         try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
-                        catch (Exception e) { imageIndex--; }
+                        catch (Exception e) {
+                            imageIndex--;
+                            MessageBox.Show("keep failed - Path error");
+                        }
                         break;
                     }
                 case Direction.backwards:
                     {
                         imageIndex--;
                         try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
-                        catch (Exception e) { imageIndex++; }
+                        catch (Exception e) { 
+                            imageIndex++;
+                            MessageBox.Show("seep failed - Path error");
+                        }
                         break;
                     }
                 case Direction.stay:
@@ -120,7 +126,19 @@ namespace WindowsFormsApp1
                     }
                 default: break;
             }
+            resizeImageBox(arrAllImages[imageIndex]);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void resizeImageBox(string file)
+        {
+          //  int height = pictureBox1.Height;
+          //  int widht = pictureBox1.Width;
+
+           // Bitmap image1 = new Bitmap(file);
+
+            // MessageBox.Show(image1.Width.ToString());
+
         }
 
         enum Direction
