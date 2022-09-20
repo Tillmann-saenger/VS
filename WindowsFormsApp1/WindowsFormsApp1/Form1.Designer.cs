@@ -59,6 +59,7 @@ namespace WindowsFormsApp1
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(12, 489);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(167, 23);
@@ -70,10 +71,10 @@ namespace WindowsFormsApp1
             // openFileDialog1
             // 
             this.openFileDialog1.Multiselect = true;
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // keepButton
             // 
+            this.keepButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.keepButton.Location = new System.Drawing.Point(674, 489);
             this.keepButton.Name = "keepButton";
             this.keepButton.Size = new System.Drawing.Size(75, 23);
@@ -84,6 +85,7 @@ namespace WindowsFormsApp1
             // 
             // previusButton
             // 
+            this.previusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.previusButton.Location = new System.Drawing.Point(632, 518);
             this.previusButton.Name = "previusButton";
             this.previusButton.Size = new System.Drawing.Size(75, 23);
@@ -94,6 +96,7 @@ namespace WindowsFormsApp1
             // 
             // nextButton
             // 
+            this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextButton.Location = new System.Drawing.Point(713, 518);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
@@ -104,6 +107,7 @@ namespace WindowsFormsApp1
             // 
             // seepButton
             // 
+            this.seepButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.seepButton.AutoSize = true;
             this.seepButton.Location = new System.Drawing.Point(674, 547);
             this.seepButton.Name = "seepButton";
@@ -115,6 +119,7 @@ namespace WindowsFormsApp1
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(12, 518);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(167, 20);
@@ -125,6 +130,7 @@ namespace WindowsFormsApp1
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Location = new System.Drawing.Point(12, 544);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(167, 20);
@@ -135,27 +141,30 @@ namespace WindowsFormsApp1
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(185, 492);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(169, 20);
+            this.textBox1.Size = new System.Drawing.Size(407, 20);
             this.textBox1.TabIndex = 8;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(185, 518);
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox2.Size = new System.Drawing.Size(169, 20);
+            this.textBox2.Size = new System.Drawing.Size(407, 20);
             this.textBox2.TabIndex = 9;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox3
             // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Location = new System.Drawing.Point(185, 544);
             this.textBox3.Name = "textBox3";
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox3.Size = new System.Drawing.Size(169, 20);
+            this.textBox3.Size = new System.Drawing.Size(407, 20);
             this.textBox3.TabIndex = 10;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -163,7 +172,7 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 610);
+            this.ClientSize = new System.Drawing.Size(854, 573);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -177,7 +186,6 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -26,51 +26,9 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;                // guard to prevent fail of FileDialog
-            arrAllImages = openFileDialog1.FileNames;                          // read all Files into array
+            arrAllImages = openFileDialog1.FileNames;                                   // read all Files into array
             displayImage(Direction.stay);
            
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void displayImage(Direction direction)
-        {
-
-            switch (direction)
-            {
-                case Direction.forwards:
-                    {
-                        imageIndex++;
-                        try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
-                        catch (Exception e) { imageIndex--; }
-                        break;
-                    }
-                case Direction.backwards:
-                    {
-                        imageIndex--;
-                        try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
-                        catch (Exception e) { imageIndex++; }
-                        break;
-                    }
-                case Direction.stay:
-                    {
-                        try{pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]);}
-                        catch (Exception e) { }
-                        break;
-                    }
-                default:
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    break;
-            }
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -81,19 +39,6 @@ namespace WindowsFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             displayImage(Direction.backwards);
-        }
-
-        enum Direction
-        {
-            forwards,
-            backwards,
-            stay
-        }
-
-        enum KeepOrSeep
-        {
-            keep,
-            seep
         }
 
         private void keepButton_Click(object sender, EventArgs e)
@@ -129,9 +74,7 @@ namespace WindowsFormsApp1
                 case KeepOrSeep.keep:
                     {
                         try { File.Copy(file, keepPath + @"\" + getFilename(file), true); }
-                        catch (Exception e) {
-                            MessageBox.Show("heil");
-                        }
+                        catch (Exception e) {}
                         break;
                     }
                 case KeepOrSeep.seep:
@@ -148,6 +91,49 @@ namespace WindowsFormsApp1
             int index = file.LastIndexOf("\\");
             string filename = file.Remove(0,index+1);
             return filename;
+        }
+
+        private void displayImage(Direction direction)
+        {
+
+            switch (direction)
+            {
+                case Direction.forwards:
+                    {
+                        imageIndex++;
+                        try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
+                        catch (Exception e) { imageIndex--; }
+                        break;
+                    }
+                case Direction.backwards:
+                    {
+                        imageIndex--;
+                        try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
+                        catch (Exception e) { imageIndex++; }
+                        break;
+                    }
+                case Direction.stay:
+                    {
+                        try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
+                        catch (Exception e) { }
+                        break;
+                    }
+                default: break;
+            }
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        enum Direction
+        {
+            forwards,
+            backwards,
+            stay
+        }
+
+        enum KeepOrSeep
+        {
+            keep,
+            seep
         }
     }
 }
