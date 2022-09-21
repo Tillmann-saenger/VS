@@ -23,52 +23,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;                // guard to prevent fail of FileDialog
-            arrAllImages = openFileDialog1.FileNames;                                   // read all Files into array
-            displayImage(Direction.stay);
-           
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            displayImage(Direction.forwards);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            displayImage(Direction.backwards);
-        }
-
-        private void keepButton_Click(object sender, EventArgs e)
-        {
-            if (arrAllImages == null) return;
-            saveFile(KeepOrSeep.keep, arrAllImages[imageIndex]);
-            displayImage(Direction.forwards); 
-        }
-
-        private void seepButton_Click(object sender, EventArgs e)
-        {
-            if (arrAllImages == null) return;
-            saveFile(KeepOrSeep.seep, arrAllImages[imageIndex]);
-            displayImage(Direction.forwards);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            folderBrowserDialog1.ShowDialog();
-            keepPath = folderBrowserDialog1.SelectedPath.ToString();
-            textBox2.Text = keepPath;
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            folderBrowserDialog2.ShowDialog();
-            seepPath = folderBrowserDialog2.SelectedPath.ToString();
-            textBox3.Text = seepPath;
-        }
-
         private void saveFile(KeepOrSeep keepOrSeep,string file)
         {
             switch (keepOrSeep)
@@ -108,7 +62,7 @@ namespace WindowsFormsApp1
                         try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
                         catch (Exception e) {
                             imageIndex--;
-                            MessageBox.Show("keep failed - Path error");
+                            //MessageBox.Show("keep failed - Path error");
                         }
                         break;
                     }
@@ -118,7 +72,7 @@ namespace WindowsFormsApp1
                         try { pictureBox1.Image = Image.FromFile(arrAllImages[imageIndex]); }
                         catch (Exception e) { 
                             imageIndex++;
-                            MessageBox.Show("seep failed - Path error");
+                            //MessageBox.Show("seep failed - Path error");
                         }
                         break;
                     }
@@ -131,17 +85,35 @@ namespace WindowsFormsApp1
                 default: break;
             }
             resizeImageBox(arrAllImages[imageIndex]);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void resizeImageBox(string file)
         {
-          //  int height = pictureBox1.Height;
-          //  int widht = pictureBox1.Width;
+            //  int height = pictureBox1.Height;
+            //  int widht = pictureBox1.Width;
 
-           // Bitmap image1 = new Bitmap(file);
+            Bitmap image = new Bitmap(file);
 
             // MessageBox.Show(image1.Width.ToString());
+            /*
+            pictureBox1.Height = image.Height;
+            pictureBox1.Width = image.Width;
+
+
+            if ((pictureBox1.Height > this.Height)&& (pictureBox1.Width < this.Width)) {
+
+                pictureBox1.Height = (pictureBox1.Height / (image.Height/ this.Height)) - 150;
+                pictureBox1.Width = (pictureBox1.Width / (image.Height / this.Height)) - 150;
+            }
+
+            if ((pictureBox1.Height > this.Width)&&(pictureBox1.Height < this.Height)){
+
+                pictureBox1.Width = (pictureBox1.Width / (image.Height / this.Height)) - 150;
+                pictureBox1.Height = (pictureBox1.Height / (image.Width / this.Width)) - 150;
+            }
+
+            */
 
         }
 
@@ -186,6 +158,51 @@ namespace WindowsFormsApp1
             foreach (Keys key in Enum.GetValues(typeof(Keys)))
                 gHook.HookedKeys.Add(key);
             gHook.hook();
+        }
+
+        private void keepPfadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            keepPath = folderBrowserDialog1.SelectedPath.ToString();
+            toolStripTextBox1.Text = keepPath;
+        }
+
+        private void seepPfadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog2.ShowDialog();
+            seepPath = folderBrowserDialog2.SelectedPath.ToString();
+            toolStripTextBox2.Text = seepPath;
+        }
+
+        private void bilderÖffnenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;                // guard to prevent fail of FileDialog
+            arrAllImages = openFileDialog1.FileNames;                                   // read all Files into array
+            displayImage(Direction.stay);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            displayImage(Direction.forwards);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            displayImage(Direction.backwards);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if (arrAllImages == null) return;
+            saveFile(KeepOrSeep.keep, arrAllImages[imageIndex]);
+            displayImage(Direction.forwards);
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (arrAllImages == null) return;
+            saveFile(KeepOrSeep.seep, arrAllImages[imageIndex]);
+            displayImage(Direction.forwards);
         }
 
         enum KeepOrSeep
