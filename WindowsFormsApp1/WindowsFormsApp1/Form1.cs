@@ -43,12 +43,14 @@ namespace WindowsFormsApp1
 
         private void keepButton_Click(object sender, EventArgs e)
         {
+            if (arrAllImages == null) return;
             saveFile(KeepOrSeep.keep, arrAllImages[imageIndex]);
             displayImage(Direction.forwards); 
         }
 
         private void seepButton_Click(object sender, EventArgs e)
         {
+            if (arrAllImages == null) return;
             saveFile(KeepOrSeep.seep, arrAllImages[imageIndex]);
             displayImage(Direction.forwards);
         }
@@ -88,14 +90,16 @@ namespace WindowsFormsApp1
 
         private string getFilename(string file)
         {
+            if (file == null) return"";
             int index = file.LastIndexOf("\\");
-            string filename = file.Remove(0,index+1);
+            string filename = file.Remove(0, index + 1);
             return filename;
+
         }
 
         private void displayImage(Direction direction)
         {
-
+            if (arrAllImages == null) return;
             switch (direction)
             {
                 case Direction.forwards:
@@ -146,6 +150,42 @@ namespace WindowsFormsApp1
             forwards,
             backwards,
             stay
+        }
+
+        GlobalKeyboardHook gHook;
+
+        public void gHook_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (arrAllImages == null) return;
+            
+            switch (((char)e.KeyValue).ToString())
+            {
+                case "'":
+                    displayImage(Direction.forwards);
+                    break;
+                case "%":
+                    displayImage(Direction.backwards);
+                    break;
+                case "(":
+                    saveFile(KeepOrSeep.seep, arrAllImages[imageIndex]);
+                    displayImage(Direction.forwards);
+                    break;
+                case "&":
+                    saveFile(KeepOrSeep.keep, arrAllImages[imageIndex]);
+                    displayImage(Direction.forwards);
+                    break;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            gHook = new GlobalKeyboardHook(); // Create a new GlobalKeyboardHook
+                                              // Declare a KeyDown Event
+            gHook.KeyDown += new KeyEventHandler(gHook_KeyDown);
+            // Add the keys you want to hook to the HookedKeys list
+            foreach (Keys key in Enum.GetValues(typeof(Keys)))
+                gHook.HookedKeys.Add(key);
+            gHook.hook();
         }
 
         enum KeepOrSeep
