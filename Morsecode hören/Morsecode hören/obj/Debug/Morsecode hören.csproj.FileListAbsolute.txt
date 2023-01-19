@@ -1,0 +1,7 @@
+C:\Users\Tillmann\source\repos\Morsecode hören\Morsecode hören\bin\Debug\Morsecode hören.exe.config
+C:\Users\Tillmann\source\repos\Morsecode hören\Morsecode hören\bin\Debug\Morsecode hören.exe
+C:\Users\Tillmann\source\repos\Morsecode hören\Morsecode hören\bin\Debug\Morsecode hören.pdb
+C:\Users\Tillmann\source\repos\Morsecode hören\Morsecode hören\obj\Debug\Morsecode hören.csproj.AssemblyReference.cache
+C:\Users\Tillmann\source\repos\Morsecode hören\Morsecode hören\obj\Debug\Morsecode hören.csproj.CoreCompileInputs.cache
+C:\Users\Tillmann\source\repos\Morsecode hören\Morsecode hören\obj\Debug\Morsecode hören.exe
+C:\Users\Tillmann\source\repos\Morsecode hören\Morsecode hören\obj\Debug\Morsecode hören.pdb
